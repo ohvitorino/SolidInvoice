@@ -14,7 +14,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8000:8000"
+      - "80:8000"
     restart: always
     volumes:
       - ".:/opt/srv"
@@ -27,6 +27,14 @@ services:
       database_name: solidinvoice
       database_user: root
       database_password:
+      VIRTUAL_HOST: facturatie.plutonian.be
+      LETSENCRYPT_HOST: facturatie.plutonian.be
+      LETSENCRYPT_EMAIL: pluto@plutonian.be
 
 volumes:
   db_data: {}
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
