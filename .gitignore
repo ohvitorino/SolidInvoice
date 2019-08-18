@@ -25,3 +25,4 @@ node_modules
 .env
 yarn-error.log
 /vendor-bin/**/vendor
+docker-compose.overwrite.yml
